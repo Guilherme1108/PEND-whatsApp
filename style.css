@@ -3,3 +3,91 @@
     padding: 0;
     box-sizing: border-box;
 }
+
+body {
+    height: 100vh;
+    width: 100vw;
+    background-color: aqua;
+    display: flex;
+}
+
+.conjuntoLateral {
+    height: 100%;
+    width: 30%;
+    display: flex;
+    flex-direction: column;
+}
+
+header {
+    height: 10%;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding-left: 40px;
+    padding-right: 40px;
+    border-bottom: solid 1px #3f7666;
+    background-color: #ffffff;
+}
+
+.icon {
+  filter: invert(100%);
+  cursor: pointer;
+}
+
+.imgMoreChat {
+    display: flex;
+    gap: 24px;
+}
+
+.iconPerson {
+    height: 50px;
+    width: 50px;
+    border-radius: 50px;
+}
+
+header p {
+    font-size: 2rem;
+}
+
+nav {
+    height: 90%;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    overflow-y: auto;
+    background-color: #ffffff;
+}
+
+.contact {
+    min-height: 74px;
+    width: 95%;
+    display: flex;
+    align-items: center;
+    padding-left: 24px;
+    gap: 24px;
+    background-color: #ffffff;
+}
+
+.contact:hover {
+    background-color: #ebebeb;
+}
+
+.contact p {
+    font-size: 1.5rem;
+}
+
+main {
+    height: 100%;
+    width: 70%;
+    background-image: url(./img/background-chat.jpg);
+    background-position: center;
+
+}
+
+.dadosContato {
+    height: 10%;
+    width: 100%;
+    background-color: chocolate;
+}
