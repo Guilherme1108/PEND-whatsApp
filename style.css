@@ -7,7 +7,6 @@
 body {
     height: 100vh;
     width: 100vw;
-    background-color: aqua;
     display: flex;
 }
 
@@ -27,6 +26,7 @@ header {
     padding-left: 40px;
     padding-right: 40px;
     border-bottom: solid 1px #3f7666;
+    border-right: 1px solid #ccc;
     background-color: #ffffff;
 }
 
@@ -57,6 +57,7 @@ nav {
     align-items: center;
     flex-direction: column;
     overflow-y: auto;
+    border-right: 1px solid #ccc;
     background-color: #ffffff;
 }
 
@@ -86,8 +87,91 @@ main {
 
 }
 
-.dadosContato {
+.barraSuperiorContato {
     height: 10%;
     width: 100%;
-    background-color: chocolate;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding-left: 24px;
+    padding-right: 24px;
+    background-color: #f8f7f3;
+}
+
+.dadosContato {
+    display: flex;
+    align-items: center;
+    gap: 24px;
+}
+
+.dadosContato img {
+    height: 50px;
+    width: 50px;
+    border-radius: 50px;
+}
+
+.dadosContato p {
+    font-size: 1.5rem;
+}
+
+.ferramentas {
+    height: 100%;
+    width: 20%;
+    display: flex;
+    align-items: center;
+    justify-content: end;
+    gap: 24px;
+}
+
+.ferramentas i {
+    font-size: 1.5rem;
+    cursor: pointer;
+}
+
+/* aplica borda apenas no segundo ícone */
+.ferramentas i:nth-child(2) {
+    border-right: 2px solid #ccc;
+    padding-right: 24px; /* espaço entre o ícone e a borda */
+}
+
+.mensagens {
+    height: 100%;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.mensagens {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    padding: 24px;
+}
+
+.mensagem {
+    max-width: 70%;
+    padding: 10px;
+    border-radius: 10px;
+    display: inline-block;
+    position: relative;
+}
+
+.mensagem.me {
+    align-self: flex-end;
+    background-color: #dcf8c6;
+    text-align: right;
+}
+
+.mensagem.other {
+    align-self: flex-start;
+    background-color: #fff;
+    text-align: right;
+}
+
+.time {
+    font-size: 0.8em;
+    color: #777;
+    display: block;
+    margin-top: 4px;
 }

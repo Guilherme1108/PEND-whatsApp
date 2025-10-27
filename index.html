@@ -7,6 +7,7 @@
     <title>WhatsApp</title>
     <link rel="stylesheet" href="style.css">
     <script src="app.js" defer></script>
+    <script src="https://kit.fontawesome.com/b03ead2179.js" crossorigin="anonymous"></script>
 </head>
 
 <body>
@@ -29,9 +30,43 @@
     </div>
 
     <main>
-        <div class="dadosContato">
+
+        <div class="barraSuperiorContato">
+            <div id="dadosContato" class="dadosContato"></div>
+
+            <div class="ferramentas">
+                <i class="fa-solid fa-phone"></i>
+                <i class="fa-solid fa-video"></i>
+                <i class="fa-solid fa-magnifying-glass"></i>
+            </div>
+        </div>
+
+        <div id="mensagens" class="mensagens">
+            
+            <div class="mensagem me">
+                <p class="content">Hello Leonid, how are you doing today?</p>
+                <span class="time">14:20</span>
+            </div>
+
+            <div class="mensagem other">
+                <p class="content">Hi, I'm doing fine. Thanks for asking.</p>
+                <span class="time">14:25</span>
+            </div>
+
+            <div class="mensagem me">
+                <p class="content">Great to hear that. Do you have any plans for the weekend?</p>
+                <span class="time">14:30</span>
+            </div>
+
+
+            <div class="mensagem other">
+                <p class="content">Not yet. I'm thinking about going to the beach. What about you?</p>
+                <span class="time">14:35</span>
+            </div>
+
 
         </div>
+
     </main>
 
 </body>

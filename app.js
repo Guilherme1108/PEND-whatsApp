@@ -1,8 +1,9 @@
 'use strict'
 
+const numeroUsuario = '11987876567'
 // URLs da API
-const USER_URL = 'https://corsproxy.io/?url=https://api-whatsapp-1is3.onrender.com/v1/userdados/11987876567'
-const CONTATOS_URL = 'https://corsproxy.io/?url=https://api-whatsapp-1is3.onrender.com/v1/contacts/11987876567'
+const USER_URL = `https://corsproxy.io/?url=https://api-whatsapp-1is3.onrender.com/v1/userdados/${numeroUsuario}`
+const CONTATOS_URL = `https://corsproxy.io/?url=https://api-whatsapp-1is3.onrender.com/v1/contacts/${numeroUsuario}`
 
 const nav = document.getElementById('listaContatos')
 const imgUser = document.getElementById('iconPerson')
@@ -24,7 +25,7 @@ function criarContatos(contato) {
     const divContato = document.createElement('div')
     const imgContato = document.createElement('img')
     const nomeContato = document.createElement('p')
-    
+
     divContato.classList.add('contact')
     imgContato.classList.add('iconPerson')
     nomeContato.classList.add('name')
@@ -35,8 +36,40 @@ function criarContatos(contato) {
     divContato.appendChild(imgContato)
     divContato.appendChild(nomeContato)
 
+    divContato.addEventListener('click', () => {
+        abrirConversa(contato)
+    })
+
     return divContato
 }
+
+async function abrirConversa(contato) {
+
+    const dadosContato = document.getElementById('dadosContato')
+    const divMensagens = document.getElementById('mensagens')
+    dadosContato.innerHTML = '' //Limpando o contato aberto para abrir o proximo
+    divMensagens.innerHTML = ''
+
+    const imgContato = document.createElement('img')
+    const nomeContato = document.createElement('p')
+
+    imgContato.src = `./img/${contato.image}`
+    nomeContato.textContent = contato.name
+
+    dadosContato.append(imgContato, nomeContato)
+
+    try {
+
+        // const response = await fetch(`https://corsproxy.io/?url=https://api-whatsapp-1is3.onrender.com/v1/user/messages/?userNumber=${numeroUsuario}&contactNumber=${contato.number}`)
+        // const dados = await response.json()
+
+    } catch (error) {
+
+    }
+
+}
+
+
 
 async function carregarContatos() {
     try {
