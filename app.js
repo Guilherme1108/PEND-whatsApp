@@ -47,10 +47,12 @@ async function abrirConversa(contato) {
 
     const dadosContato = document.getElementById('dadosContato')
     const divMensagens = document.getElementById('mensagens')
-    
-    dadosContato.innerHTML = '' //Limpando o contato aberto para abrir o proximo
+
+    // Limpa o conteúdo anterior
+    dadosContato.innerHTML = ''
     divMensagens.innerHTML = ''
 
+    // Exibe o contato selecionado
     const imgContato = document.createElement('img')
     const nomeContato = document.createElement('p')
 
@@ -59,30 +61,51 @@ async function abrirConversa(contato) {
 
     dadosContato.append(imgContato, nomeContato)
 
-    const divMensagem = document.createElement('div')
-
-
-
     try {
-
         const response = await fetch(`https://corsproxy.io/?url=https://api-whatsapp-1is3.onrender.com/v1/user/messages/?userNumber=${numeroUsuario}&contactNumber=${contato.number}`)
         const dados = await response.json()
 
+        if (!dados.status || !dados.conversation) {
+            throw new Error('Nenhuma conversa encontrada.')
+        }
+
+        const fragment = document.createDocumentFragment()
+
+        for (const msg of dados.conversation) {
+            const divMensagem = document.createElement('div')
+            const mensagem = document.createElement('p')
+            const hora = document.createElement('span')
+
+            divMensagem.classList.add('mensagem', msg.sender === 'me' ? 'me' : 'other')
+            mensagem.classList.add('content')
+            hora.classList.add('time')
+
+            mensagem.textContent = msg.content
+            hora.textContent = msg.time
+
+            divMensagem.append(mensagem, hora)
+            fragment.appendChild(divMensagem)
+        }
+
+        divMensagens.appendChild(fragment)
+
+        // Rola automaticamente até a última mensagem
+        divMensagens.scrollTop = divMensagens.scrollHeight
+
     } catch (error) {
-
+        console.error('Erro ao carregar mensagens:', error)
     }
-
 }
-
-
 
 async function carregarContatos() {
     try {
-        const response = await fetch(CONTATOS_URL)
+        const response = await fetch(USER_URL)
         const dados = await response.json()
 
-        // agora acessa o array dentro de data.contacts
-        dados.contacts.forEach(contato => {
+        // pega os contatos do primeiro usuário
+        const contatos = dados.userDados[0].contacts
+
+        contatos.forEach(contato => {
             const elemento = criarContatos(contato)
             nav.appendChild(elemento)
         })
