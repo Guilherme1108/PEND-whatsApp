@@ -52,6 +52,11 @@ async function abrirConversa(contato) {
     dadosContato.innerHTML = ''
     divMensagens.innerHTML = ''
 
+    // Adicionando um fundo para as conversas
+    divMensagens.style.backgroundImage = "url('./img/background-chat.jpg')";
+    divMensagens.style.backgroundPosition = "center"
+
+
     // Exibe o contato selecionado
     const imgContato = document.createElement('img')
     const nomeContato = document.createElement('p')

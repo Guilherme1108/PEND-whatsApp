@@ -82,9 +82,10 @@ nav {
 main {
     height: 100%;
     width: 70%;
-    background-image: url(./img/background-chat.jpg);
+    background-image: url(./img/nenhum_contato_aberto.png);
     background-position: center;
-    overflow: hidden;
+    background-repeat: no-repeat;
+    background-color: #fffcf0;
 
 }
 
@@ -97,6 +98,7 @@ main {
     padding-left: 24px;
     padding-right: 24px;
     background-color: #f8f7f3;
+    visibility: visible;
 }
 
 .dadosContato {
@@ -135,15 +137,11 @@ main {
     padding-right: 24px; /* espaço entre o ícone e a borda */
 }
 
-.mensagens {
-    height: 100%;
-    width: 100%;
-    display: flex;
-    flex-direction: column;
-    gap: 12px;
-}
+
 
 .mensagens {
+    height: 90%;
+    width: 100%;
     display: flex;
     flex-direction: column;
     gap: 10px;
