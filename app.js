@@ -47,6 +47,7 @@ async function abrirConversa(contato) {
 
     const dadosContato = document.getElementById('dadosContato')
     const divMensagens = document.getElementById('mensagens')
+    
     dadosContato.innerHTML = '' //Limpando o contato aberto para abrir o proximo
     divMensagens.innerHTML = ''
 
@@ -58,10 +59,14 @@ async function abrirConversa(contato) {
 
     dadosContato.append(imgContato, nomeContato)
 
+    const divMensagem = document.createElement('div')
+
+
+
     try {
 
-        // const response = await fetch(`https://corsproxy.io/?url=https://api-whatsapp-1is3.onrender.com/v1/user/messages/?userNumber=${numeroUsuario}&contactNumber=${contato.number}`)
-        // const dados = await response.json()
+        const response = await fetch(`https://corsproxy.io/?url=https://api-whatsapp-1is3.onrender.com/v1/user/messages/?userNumber=${numeroUsuario}&contactNumber=${contato.number}`)
+        const dados = await response.json()
 
     } catch (error) {
 
