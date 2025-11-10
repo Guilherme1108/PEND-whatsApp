@@ -49,12 +49,14 @@ async function abrirConversa(contato) {
     const divMensagens = document.getElementById('mensagens')
 
     // Limpa o conteúdo anterior
-    dadosContato.innerHTML = ''
-    divMensagens.innerHTML = ''
+    dadosContato.replaceChildren()
+    divMensagens.replaceChildren()
 
     // Adicionando um fundo para as conversas
     divMensagens.style.backgroundImage = "url('./img/background-chat.jpg')";
     divMensagens.style.backgroundPosition = "center"
+    divMensagens.style.backgroundRepeat = "no-repeat"
+    divMensagens.style.backgroundSize = "cover"
 
 
     // Exibe o contato selecionado
@@ -91,6 +93,11 @@ async function abrirConversa(contato) {
             divMensagem.append(mensagem, hora)
             fragment.appendChild(divMensagem)
         }
+
+        const divSendMessage = document.createElement('div')
+        const emoji = document.createElement('i')
+        const arquivos = document.createElement('i')
+        const button = document.createElement('button')
 
         divMensagens.appendChild(fragment)
 
