@@ -94,11 +94,6 @@ async function abrirConversa(contato) {
             fragment.appendChild(divMensagem)
         }
 
-        const divSendMessage = document.createElement('div')
-        const emoji = document.createElement('i')
-        const arquivos = document.createElement('i')
-        const button = document.createElement('button')
-
         divMensagens.appendChild(fragment)
 
         // Rola automaticamente até a última mensagem
@@ -107,6 +102,19 @@ async function abrirConversa(contato) {
     } catch (error) {
         console.error('Erro ao carregar mensagens:', error)
     }
+
+    const divSendMessage = document.getElementById('sendMessage')
+    const emoji = document.createElement('i')
+    const arquivos = document.createElement('i')
+    const input = document.createElement('input')
+    const microfone = document.createElement('i')
+
+    emoji.classList.add('fa-solid', 'fa-face-smile')
+    arquivos.classList.add('fa-solid', 'fa-paperclip')
+    microfone.classList.add('fa-solid', 'fa-microphone')
+
+    divSendMessage.append(emoji, arquivos, input, microfone)
+
 }
 
 async function carregarContatos() {

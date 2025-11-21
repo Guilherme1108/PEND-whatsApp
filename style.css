@@ -184,14 +184,18 @@ main {
     justify-content: center;
     gap: 12px;
     background-color: #ffffff;
+    padding-left: 18px;
+    padding-right: 18px;
 }
 
 .sendMessage i {
 font-size: 2rem;
 }
 
-.sendMessage button {
+.sendMessage input {
     height: 60%;
-    width: 90%;
+    width: 80%;
     border-radius: 50px;
+    font-size: 1rem;
+    padding-left: 12px;
 }
